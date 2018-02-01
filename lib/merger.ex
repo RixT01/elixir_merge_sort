@@ -47,15 +47,14 @@ defmodule Merger do
     merge([], tail, merged_list)
   end
 
-  #comparable scenario
+  #if leftie is bigger or equal, place rightie first
   defp merge(l_half = [l_head | l_tail], [r_head | r_tail], merged_list) when l_head >= r_head do
-    #if leftie is bigger or equal, place rightie first
     merged_list = merged_list ++ [r_head]
     merge(l_half, r_tail, merged_list)
   end
 
+  #if righte is bigger, place leftie first
   defp merge([l_head | l_tail], r_half = [r_head | r_tail], merged_list) do
-    #if righte is bigger, place leftie first
     merged_list = merged_list ++ [l_head]
     merge(l_tail, r_half, merged_list)
   end
